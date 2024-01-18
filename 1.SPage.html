@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <head>
+    <link rel="icon" href="icon.GIF">
+    </head>
+  <title>Tests1234</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: 'Times New Roman', sans-serif;
+    }
+
+    body {
+      background-image: url(ktn.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .container {
+      max-width: 80%;
+      margin: 50px auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      background-color: #85828293;
+      color: #fff;
+	  border: 2px solid #050101;
+    }
+
+    .main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .text {
+      font-size: 30px;
+      margin: 15px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      font-size: 18px;
+    }
+
+    .form-group input {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #fff;
+    }
+
+    .start-btn {
+      padding: 10px 20px;
+      font-size: 20px;
+      background-color: red;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .start-btn:hover {
+      background-color: #95ff0a9f;
+      color: #050101;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="main">
+      <h1 class="text">WELCOME TO YOUR FIRST KATOEN NATIE TEST</h1>
+      <br>
+      <div id="error-msg" style="color: red;"></div>
+      <form id="name-form" onsubmit="event.preventDefault(); saveName();">
+        <div class="form-group">
+          <label for="first-name">First Name:</label>
+          <input type="text" id="first-name" name="first-name" required>
+        </div>
+        <div class="form-group">
+          <label for="last-name">Last Name:</label>
+          <input type="text" id="last-name" name="last-name" required>
+        </div>
+        <button class="start-btn" id="start-btn">Start test</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    function saveName() {
+      var firstName = document.getElementById('first-name').value;
+      var lastName = document.getElementById('last-name').value;
+      
+      if (firstName.trim() === "" || lastName.trim() === "") {
+        document.getElementById('error-msg').textContent = "Please enter both first name and last name.";
+        return;
+      }
+      
+      localStorage.setItem('firstName', firstName);
+      localStorage.setItem('lastName', lastName);
+      window.location.href = '2.Vid.html';
+    }
+  </script>
+</body>
+</html>
